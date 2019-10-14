@@ -23,7 +23,7 @@ jobs:
     executor: orb-tools/ubuntu
     steps:
       - telegram/sendgif:
-          gif-url: "https://gfycat.com/embellishedjoyoushog-penguin-rocket"
+          gif-url: "http://gfycat.com/embellishedjoyoushog-penguin-rocket"
 
 # yaml anchor filters
 integration-dev_filters: &integration-dev_filters
