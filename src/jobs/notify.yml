@@ -4,7 +4,7 @@ parameters:
   message:
     description: Enter custom message.
     type: string
-    default: A workflow in CircleCI is awaiting your approval.
+    default: Job Message from CircleCI!
 
 executor: default
 
