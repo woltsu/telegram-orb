@@ -4,10 +4,13 @@ description: >
   Sample description
 executor: default
 parameters:
-  greeting:
+  chat_id:
     type: string
-    default: "Hello"
-    description: "Select a proper greeting"
+    default: ""
+    description: "Telegram chat id"
+  token:
+    type: string
+    default: ""
+    description: "Telegram bot token"
 steps:
-  - greet:
-      greeting: << parameters.greeting >>
+  - greet
