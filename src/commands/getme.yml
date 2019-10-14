@@ -1,0 +1,17 @@
+description: >
+  A simple method for testing your bot's auth token. Returns basic information about the bot in form of a User object.
+
+parameters:
+  telegram-bot-token:
+    type: env_var_name
+    default: TELEGRAM_BOT_TOKEN
+    description: >
+      Name of environment variable storing your Telegram bot token
+
+steps:
+
+  - run:
+      name: Fetch bot information
+      shell: /bin/bash
+      command: |
+        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/getMe"
