@@ -90,6 +90,10 @@ workflows:
       - notifytest:
           name: notifytest-dev
           filters: *integration-dev_filters
+      - telegram/notify:
+          name: approval-notification-job-dev
+          filters: *integration-dev_filters
+          message: Telegram notify job message!
 
   # this `integration-tests_prod-release` workflow will ignore commits
   # it is only triggered by git tags, which are created in the job above
