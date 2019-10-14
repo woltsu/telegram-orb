@@ -4,7 +4,7 @@ usage:
   version: 2.1
 
   orbs:
-    slack: woltsu/telegram@x.y.z
+    telegram: woltsu/telegram@x.y.z
 
   jobs:
     build:
