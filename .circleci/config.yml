@@ -108,7 +108,6 @@ workflows:
       - sendgiftest:
           name: sendgiftest-dev
           filters: *integration-dev_filters
-          gif-url: "https://gfycat.com/embellishedjoyoushog-penguin-rocket"
 
       - telegram/notify:
           name: notify-job-dev
