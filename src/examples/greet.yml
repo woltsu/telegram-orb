@@ -1,0 +1,19 @@
+description: "Greet a telegram channel."
+
+usage:
+  version: 2.1
+
+  orbs:
+    slack: woltsu/telegram@x.y.z
+
+  jobs:
+    build:
+      docker:
+        - image: <docker image>
+      steps:
+        - telegram/greet
+
+  workflows:
+    your-workflow:
+      jobs:
+        - build
