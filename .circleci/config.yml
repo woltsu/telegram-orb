@@ -88,33 +88,36 @@ workflows:
             branches:
               only: master
 
-  integration_tests-prod_deploy:
+  integration-tests_prod-release:
     jobs:
       # triggered by non-master branch commits
       - greettest:
           name: greettest-dev
           filters: *integration-dev_filters
+
       - notifytest:
           name: notifytest-dev
           filters: *integration-dev_filters
+
       - telegram/notify:
           name: notify-job-dev
           filters: *integration-dev_filters
           message: Telegram notify job message!
+          
       # triggered by master branch commits
       - greettest:
           name: greettest-master
           filters: *integration-master_filters
+
       - notifytest:
           name: notifytest-master
           filters: *integration-master_filters
+
       - telegram/notify:
           name: notify-job-master
           filters: *integration-master_filters
           message: Telegram notify job message!
 
-  integration-tests_prod-release:
-    jobs:
       - orb-tools/dev-promote-prod:
           name: dev-promote-patch
           orb-name: circleci/orb-tools
