@@ -113,7 +113,7 @@ workflows:
           filters: *integration-master_filters
           message: Telegram notify job message!
 
- integration-tests_prod-release:
+  integration-tests_prod-release:
     jobs:
       - orb-tools/dev-promote-prod:
           name: dev-promote-patch
