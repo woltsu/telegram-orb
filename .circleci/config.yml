@@ -103,7 +103,7 @@ workflows:
           name: notify-job-dev
           filters: *integration-dev_filters
           message: Telegram notify job message!
-          
+
       # triggered by master branch commits
       - greettest:
           name: greettest-master
