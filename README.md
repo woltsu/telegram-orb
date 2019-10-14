@@ -26,6 +26,12 @@ jobs:
 ### Notify
 Notify a Telegram channel with a custom message at any point in a job with this custom step.
 
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `message` | `string` |  Message from CircleCI. | Enter a custom message. |
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
+
 Example:
 
 ```yaml
@@ -47,6 +53,12 @@ jobs:
 
 ### Notify
 Notify a Telegram channel.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `message` | `string` |  Job Message from CircleCI! | Enter a custom message. |
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
 
 Example:
 
