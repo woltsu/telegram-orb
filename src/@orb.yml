@@ -3,6 +3,7 @@ version: 2.1
 description: >
   Add custom Telegram notifications into your CircleCI projects.
   View this orb's source: https://github.com/woltsu/telegram-orb
+  Requires TELEGRAM_BOT_TOKEN and TELEGRAM_CHAT_ID environmental variables.
 # Create your bot here: https://core.telegram.org/bots
 
 ## Requirements ##
