@@ -23,6 +23,29 @@ jobs:
 
 ## Commands
 
+### GetMe
+A simple method for testing your bot's auth token. Returns basic information about the bot in form of a User object.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+
+Example:
+
+```yaml
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@x.y.z
+
+jobs:
+  build:
+    docker:
+      - image: <docker image>
+    steps:
+      - telegram/getme
+```
+
 ### Notify
 Notify a Telegram channel with a custom message at any point in a job with this custom step.
 
@@ -31,6 +54,7 @@ Notify a Telegram channel with a custom message at any point in a job with this 
 | `message` | `string` |  Message from CircleCI. | Enter a custom message. |
 | `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
 | `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
+| `parse_mode` | `boolean` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
 
 Example:
 
@@ -59,6 +83,7 @@ Notify a Telegram channel.
 | `message` | `string` |  Job Message from CircleCI! | Enter a custom message. |
 | `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
 | `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
+| `parse_mode` | `boolean` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
 
 Example:
 
