@@ -7,6 +7,14 @@ orbs:
   telegram: woltsu/telegram@dev:alpha
   orb-tools: circleci/orb-tools@8.27.3
 
+jobs:
+  greettest:
+    executor: orb-tools/ubuntu
+    steps:
+      - run: exit 0 #toggle this to force success or status for testing
+      - telegram/greet:
+          greeting: "Test Greet"
+
 workflows:
   # this `lint-pack_validate_publish-dev` workflow will run on any commit
   lint-pack_validate_publish-dev:
@@ -55,6 +63,13 @@ workflows:
           filters:
             branches:
               only: master
+
+  integration_tests-prod_deploy:
+    jobs:
+      # triggered by non-master branch commits
+      - greettest:
+          name: greettest-dev
+          filters: *integration-dev_filters
 
   # this `integration-tests_prod-release` workflow will ignore commits
   # it is only triggered by git tags, which are created in the job above
