@@ -18,6 +18,11 @@ parameters:
     description: >
       Name of environment variable storing your Telegram chat id
 
+  parse_mode:
+    description: Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.
+    type: string
+    default: none
+
 executor: default
 
 steps:
@@ -25,3 +30,4 @@ steps:
       message: << parameters.message >>
       telegram-bot-token: << parameters.telegram-bot-token >>
       telegram-chat-id: << parameters.telegram-chat-id >>
+      parse_mode: << parameters.parse_mode >>
