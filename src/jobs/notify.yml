@@ -6,7 +6,7 @@ parameters:
     type: string
     default: A workflow in CircleCI is awaiting your approval.
 
-executor: alpine
+executor: default
 
 steps:
   - notify:
