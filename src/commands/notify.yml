@@ -1,5 +1,5 @@
 description: >
-  Sends a greeting message to the specified Telegram chat.
+  Sends a custom message to the specified Telegram chat.
 
 parameters:
   message:

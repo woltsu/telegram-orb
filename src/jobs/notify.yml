@@ -1,0 +1,13 @@
+description: Notify Telegram
+
+parameters:
+  message:
+    description: Enter custom message.
+    type: string
+    default: Job Message from CircleCI!
+
+executor: default
+
+steps:
+  - notify:
+      message: << parameters.message >>
