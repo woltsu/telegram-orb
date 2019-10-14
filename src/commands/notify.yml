@@ -1,0 +1,15 @@
+description: >
+  Sends a greeting message to the specified Telegram chat.
+
+parameters:
+  message:
+    description: Enter a custom message.
+    type: string
+    default: Message from CircleCI.
+
+steps:
+  - run:
+      name: Telegram Notification
+      shell: /bin/bash
+      command: |
+        curl "https://api.telegram.org/bot$TELEGRAM_BOT_TOKEN/sendMessage?chat_id=$TELEGRAM_CHAT_ID&text=<< parameters.message >>"
