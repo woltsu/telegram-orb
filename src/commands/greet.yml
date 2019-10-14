@@ -17,4 +17,4 @@ steps:
       name: Greet
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot<< parameters.token >>/sendMessage\?chat_id\=<< parameters.chat_id >>\&text\=test123"
+        curl "https://api.telegram.org/bot<< parameters.token >>/sendMessage?chat_id=<< parameters.chat_id >>&text=test123"
