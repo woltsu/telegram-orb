@@ -12,9 +12,7 @@ jobs:
     executor: orb-tools/ubuntu
     steps:
       - run: exit 0 #toggle this to force success or status for testing
-      - telegram/greet:
-          token: $TELEGRAM_TOKEN
-          chat_id: $TELEGRAM_CHAT_ID
+      - telegram/greet
 
 # yaml anchor filters
 integration-dev_filters: &integration-dev_filters

@@ -1,17 +1,6 @@
 description: >
   Sends a greeting message to the specified Telegram chat.
 
-parameters:
-  token:
-    type: string
-    default: ""
-    description: "Telegram bot token"
-
-  chat_id:
-    type: string
-    default: ""
-    description: "Tegram chat id into which send the message to"
-
 steps:
   - run:
       name: Greet
