@@ -23,6 +23,29 @@ jobs:
 
 ## Commands
 
+### GetMe
+A simple method for testing your bot's auth token. Returns basic information about the bot in form of a User object.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+
+Example:
+
+```yaml
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@x.y.z
+
+jobs:
+  build:
+    docker:
+      - image: <docker image>
+    steps:
+      - telegram/getme
+```
+
 ### Notify
 Notify a Telegram channel with a custom message at any point in a job with this custom step.
 
