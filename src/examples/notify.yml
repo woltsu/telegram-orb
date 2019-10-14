@@ -1,0 +1,20 @@
+description: "Send a notification to a telegram channel."
+
+usage:
+  version: 2.1
+
+  orbs:
+    slack: woltsu/telegram@x.y.z
+
+  jobs:
+    build:
+      docker:
+        - image: <docker image>
+      steps:
+        - telegram/notify:
+            message: "Custom notification message."
+
+  workflows:
+    your-workflow:
+      jobs:
+        - build
