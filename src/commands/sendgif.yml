@@ -20,7 +20,6 @@ parameters:
       Name of environment variable storing your Telegram chat id
 
 steps:
-
   - run:
       name: Send Animated Image
       shell: /bin/bash
