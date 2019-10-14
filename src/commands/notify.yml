@@ -19,10 +19,15 @@ parameters:
     description: >
       Name of environment variable storing your Telegram chat id
 
+  parse_mode:
+    description: Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message.
+    type: string
+    default: none
+
 steps:
 
   - run:
       name: Telegram Notification
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&text=<< parameters.message >>"
+        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&parse_mode=<< parameters.parse_mode >>&text=<< parameters.message >>"
