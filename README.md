@@ -1,3 +1,5 @@
+## telegram-orb [![CircleCI](https://circleci.com/gh/woltsu/telegram-orb.svg?style=svg)](https://circleci.com/gh/woltsu/telegram-orb) [![CircleCI Orb Version](https://img.shields.io/badge/endpoint.svg?url=https://badges.circleci.io/orb/woltsu/telegram)](https://circleci.com/orbs/registry/orb/woltsu/telegram)
+
 Easily integrate custom [Telegram](https://telegram.org/ "Telegram") notifications into your [CircleCI](https://circleci.com/ "CircleCI") projects.
 
 Learn more about [Orbs](https://circleci.com/docs/2.0/using-orbs/ "Using Orbs").
