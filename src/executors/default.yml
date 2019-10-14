@@ -1,3 +1,3 @@
 resource_class: small
 docker:
-  - image: cibuilds/base:latest
+  - image: cibuilds/base:2019.10
