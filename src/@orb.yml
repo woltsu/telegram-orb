@@ -1,9 +1,10 @@
 version: 2.1
 
 description: >
-  Sample orb description
-  # What will your orb allow users to do?
-  # Descriptions should be short, simple, and clear.
+  Custom Telegram notifications into your CircleCI projects.
+  View this orb's source: https://github.com/woltsu/telegram-orb
+# Create your bot here: https://github.com/woltsu/telegram-orb
 
-orbs:
-  hello: circleci/hello-build@0.0.5 # Sample imported orb
+## Requirements ##
+## - Bash
+## - cURL
