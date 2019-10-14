@@ -11,8 +11,13 @@ jobs:
   greettest:
     executor: orb-tools/ubuntu
     steps:
-      - run: exit 0 #toggle this to force success or status for testing
       - telegram/greet
+
+  notifytest:
+    executor: orb-tools/ubuntu
+    steps:
+      - telegram/notify:
+          message: "Notification test from CircleCI!"
 
 # yaml anchor filters
 integration-dev_filters: &integration-dev_filters
@@ -81,6 +86,9 @@ workflows:
       # triggered by non-master branch commits
       - greettest:
           name: greettest-dev
+          filters: *integration-dev_filters
+      - notifytest:
+          name: notifytest-dev
           filters: *integration-dev_filters
 
   # this `integration-tests_prod-release` workflow will ignore commits
