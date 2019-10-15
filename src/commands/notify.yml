@@ -27,7 +27,7 @@ parameters:
   disable_notification:
     description: Sends the message silently. Users will receive a notification with no sound.
     type: boolean
-    default: none
+    default: false
 
 steps:
   - run:
