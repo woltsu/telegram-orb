@@ -81,7 +81,7 @@ A command which sends an animated image to the specified Telegram chat.
 |-----------|------|---------|-------------|
 | `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token
 | `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id
-| `image-url` | `string` | | Enter the image's URL
+| `gif-url` | `string` | | Enter the image's URL
 
 Example:
 
@@ -97,7 +97,7 @@ jobs:
       - image: <docker image>
     steps:
       - telegram/sendgif:
-          - image-url: "https://www.example.com/img.gif"
+          - gif-url: "https://www.example.com/img.gif"
 ```
 
 ### SendPhoto

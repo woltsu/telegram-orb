@@ -12,7 +12,7 @@ usage:
         - image: <docker image>
       steps:
         - telegram/sendgif:
-            image-url: "https://www.example.com/img.gif"
+            gif-url: "https://www.example.com/img.gif"
 
   workflows:
     your-workflow:
