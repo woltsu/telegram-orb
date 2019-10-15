@@ -74,6 +74,30 @@ jobs:
       - telegram/getme
 ```
 
+### GetChat
+A method to get up to date information about the chat (current name of the user for one-on-one conversations, current username of a user, group or channel, etc.) Returns a Chat object on success.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
+
+Example:
+
+```yaml
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@x.y.z
+
+jobs:
+  build:
+    docker:
+      - image: <docker image>
+    steps:
+      - telegram/getchat
+```
+
 ### SendGIF
 A command which sends an animated image to the specified Telegram chat.
 
