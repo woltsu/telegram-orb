@@ -30,7 +30,4 @@ steps:
       name: Telegram Notification
       shell: /bin/bash
       command: |
-        if [-z "$parameter.telegram-bot-token" -o -z "$parameter.telegram-chat-id" -o -z "$parameter.message"]; then
-          echo "Environment variable is empty"
-        fi
         curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&parse_mode=<< parameters.parse_mode >>&text=<< parameters.message >>"
