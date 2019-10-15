@@ -80,11 +80,11 @@ jobs:
 
 Send a sticker to Telegram
 
-| Parameter            | Type           | Default                                                                               | Description                                                  |
-| -------------------- | -------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN                                                                    | Name of environment variable storing your Telegram bot token |
-| `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID                                                                      | Name of environment variable storing your Telegram chat id   |
-| `telegram-sticker`   | `string`       | https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp | file_id or url to .webp                                      |
+| Parameter            | Type           | Default            | Description                                                  |
+| -------------------- | -------------- | ------------------ | ------------------------------------------------------------ |
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID   | Name of environment variable storing your Telegram chat id   |
+| `telegram-sticker`   | `string`       | ""                 | file_id or url to .webp                                      |
 
 Example:
 
@@ -133,11 +133,11 @@ jobs:
 
 Send a sticker to Telegram
 
-| Parameter            | Type           | Default                                                                               | Description                                                  |
-| -------------------- | -------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
-| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN                                                                    | Name of environment variable storing your Telegram bot token |
-| `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID                                                                      | Name of environment variable storing your Telegram chat id   |
-| `telegram-sticker`   | `string`       | https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp | file_id or url to .webp                                      |
+| Parameter            | Type           | Default            | Description                                                  |
+| -------------------- | -------------- | ------------------ | ------------------------------------------------------------ |
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID   | Name of environment variable storing your Telegram chat id   |
+| `telegram-sticker`   | `string`       | ""                 | file_id or url to .webp                                      |
 
 Example:
 

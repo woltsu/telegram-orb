@@ -15,11 +15,17 @@ parameters:
   telegram-sticker:
     description: Enter a sticker file_id to send a file that exists on the Telegram servers or an HTTP URL as a String for Telegram to get a .webp file from the Internet
     type: string
-    default: https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp
+    default: ""
 
 steps:
   - run:
       name: SendSticker
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendSticker?chat_id=$<<parameters.telegram-chat-id>>&sticker=$<<parameters.telegram-sticker>>"
+        if [ -z <<parameters.telegram-sticker>> ]
+        then
+            echo "Please add a valid file_id or url to .webp-file"
+        else
+
+        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendSticker?chat_id=$<<parameters.telegram-chat-id>>&sticker=<<parameters.telegram-sticker>>"
+        fi

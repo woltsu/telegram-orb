@@ -4,7 +4,7 @@ parameters:
   telegram-sticker:
     description: Enter a sticker file_id to send a file that exists on the Telegram servers or an HTTP URL as a String for Telegram to get a .webp file from the Internet
     type: string
-    default: https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp
+    default: ""
 
   telegram-bot-token:
     type: env_var_name
