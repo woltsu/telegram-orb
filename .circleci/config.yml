@@ -141,7 +141,7 @@ workflows:
 
       - sendphototest:
           name: sendphototest-master
-          filters: *iintegration-master_filters
+          filters: *integration-master_filters
 
       - telegram/notify:
           name: notify-job-master
