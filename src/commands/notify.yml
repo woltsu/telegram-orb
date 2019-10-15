@@ -24,10 +24,14 @@ parameters:
     type: string
     default: none
 
-steps:
+  disable_notification:
+    description: Sends the message silently. Users will receive a notification with no sound.
+    type: boolean
+    default: none
 
+steps:
   - run:
       name: Telegram Notification
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&parse_mode=<< parameters.parse_mode >>&text=<< parameters.message >>"
+        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&parse_mode=<< parameters.parse_mode >>&disable_notification=<< parameters.disable_notification >>&text=<< parameters.message >>"
