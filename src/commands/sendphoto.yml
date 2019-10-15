@@ -1,5 +1,6 @@
 description: >
   Sends an image to the specified Telegram chat.
+
 parameters:
   image-url:
     description: Enter the image's URL.
@@ -11,6 +12,7 @@ parameters:
     default: TELEGRAM_BOT_TOKEN
     description: >
       Name of environment variable storing your Telegram bot token
+
   telegram-chat-id:
     type: env_var_name
     default: TELEGRAM_CHAT_ID
@@ -18,7 +20,6 @@ parameters:
       Name of environment variable storing your Telegram chat id
 
 steps:
-
   - run:
       name: Send Image
       shell: /bin/bash
