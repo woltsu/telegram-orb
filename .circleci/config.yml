@@ -19,6 +19,12 @@ jobs:
       - telegram/notify:
           message: "Notification test from CircleCI!"
 
+  sendgiftest:
+    executor: orb-tools/ubuntu
+    steps:
+      - telegram/sendgif:
+          gif-url: "https://i.redd.it/1dsyzqgv3os21.gif"
+
 # yaml anchor filters
 integration-dev_filters: &integration-dev_filters
   branches:
@@ -99,6 +105,10 @@ workflows:
           name: notifytest-dev
           filters: *integration-dev_filters
 
+      - sendgiftest:
+          name: sendgiftest-dev
+          filters: *integration-dev_filters
+
       - telegram/notify:
           name: notify-job-dev
           filters: *integration-dev_filters
@@ -112,6 +122,10 @@ workflows:
       - notifytest:
           name: notifytest-master
           filters: *integration-master_filters
+
+      - sendgiftest:
+          name: sendgiftest-dev
+          filters: *integration-dev_filters
 
       - telegram/notify:
           name: notify-job-master
