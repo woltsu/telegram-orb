@@ -1,0 +1,20 @@
+description: "Send an animated image to a telegram channel."
+
+usage:
+  version: 2.1
+
+  orbs:
+    telegram: woltsu/telegram@x.y.z
+
+  jobs:
+    build:
+      docker:
+        - image: <docker image>
+      steps:
+        - telegram/sendgif:
+            gif-url: "https://www.example.com/img.gif"
+
+  workflows:
+    your-workflow:
+      jobs:
+        - build
