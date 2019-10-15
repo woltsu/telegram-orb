@@ -31,8 +31,7 @@ Notify a Telegram channel with a custom message at any point in a job with this 
 | `message` | `string` |  Message from CircleCI. | Enter a custom message. |
 | `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
 | `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
-| `parse_mode` | `string` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
-| `disable_notification` | `boolean` | none | Sends the message silently. Users will receive a notification with no sound. |
+| `parse_mode` | `boolean` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
 
 Example:
 
@@ -84,8 +83,7 @@ Notify a Telegram channel.
 | `message` | `string` |  Job Message from CircleCI! | Enter a custom message. |
 | `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
 | `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
-| `parse_mode` | `string` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
-| `disable_notification` | `boolean` | none | Sends the message silently. Users will receive a notification with no sound. |
+| `parse_mode` | `boolean` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
 
 Example:
 
