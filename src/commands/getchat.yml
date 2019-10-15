@@ -20,14 +20,14 @@ steps:
       name: Fetch chat information
       shell: /bin/bash
       command: |
-        if [-z "<< parameter.telegram-bot-token >>" ]; then
+        if [-z "$<< parameter.telegram-bot-token >>" ]; then
           echo "Please input your TELEGRAM_BOT_TOKEN value in the CircleCI settings for this project or as a parameter for this command"
           exit 1
         fi
 
-        if [-z "<< parameter.telegram-chat-id >>" ]; then
+        if [-z "$<< parameter.telegram-chat-id >>" ]; then
           echo "Please input your TELEGRAM_CHAT_ID value in the CircleCI settings for this project or as a parameter for this command"
           exit 1
         fi
 
-        curl "https://api.telegram.org/bot<< parameters.telegram-bot-token >>/getChat?chat_id=<< parameters.telegram-chat-id >>"
+        curl "https://api.telegram.org/bot$<< parameters.telegram-bot-token >>/getChat?chat_id=$<< parameters.telegram-chat-id >>"
