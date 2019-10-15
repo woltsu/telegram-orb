@@ -23,6 +23,11 @@ parameters:
     type: string
     default: none
 
+  disable_notification:
+    description: Sends the message silently. Users will receive a notification with no sound.
+    type: boolean
+    default: none
+
 executor: default
 
 steps:
@@ -31,3 +36,4 @@ steps:
       telegram-bot-token: << parameters.telegram-bot-token >>
       telegram-chat-id: << parameters.telegram-chat-id >>
       parse_mode: << parameters.parse_mode >>
+      disable_notification: << parameters.disable_notification >>
