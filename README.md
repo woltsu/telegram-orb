@@ -98,6 +98,28 @@ jobs:
       message: "Notification from CircleCI!"
 ```
 
+### SendPhoto
+Use this method to send photos. On success the sent Message is returned.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `telegram-photo` | `string` or `InputFile` |  photo | Photo to send. |
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
+
+Example:
+
+```yaml
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@x.y.z
+
+jobs:
+  - telegram/sendPhoto:
+      telegram-photo: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/photo-ara.jpg"
+```
+
 ## Help
 
 ### How to create a Telegram bot

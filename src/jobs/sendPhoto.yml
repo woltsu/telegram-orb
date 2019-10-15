@@ -1,0 +1,25 @@
+description: Send a photo to Telegram
+
+parameters:
+  telegram-photo:
+    description: Enter a photo file_id to send a photo that exists on the Telegram servers or an HTTP URL as a String for Telegram to get a photo from the Internet or upload using a new photo using form-data
+    type: string or inputFile
+    default: https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/photo-ara.jpg
+
+  telegram-bot-token:
+    type: env_var_name
+    default: TELEGRAM_BOT_TOKEN
+    description: >
+      Name of environment variable storing your Telegram bot token
+  telegram-chat-id:
+    type: env_var_name
+    default: TELEGRAM_CHAT_ID
+    description: >
+      Name of environment variable storing your Telegram chat id
+executor: default
+
+steps:
+  - sendPhoto:
+      telegram-photo: << parameters.telegram-photo >>
+      telegram-bot-token: << parameters.telegram-bot-token >>
+      telegram-chat-id: << parameters.telegram-chat-id >>
