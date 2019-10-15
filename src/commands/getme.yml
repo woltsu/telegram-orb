@@ -14,4 +14,7 @@ steps:
       name: Fetch bot information
       shell: /bin/bash
       command: |
+        if [-z "$parameter.telegram-bot-token"]; then
+          echo "Environment variable is empty"
+        fi
         curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/getMe"

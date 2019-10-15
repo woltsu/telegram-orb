@@ -18,4 +18,7 @@ steps:
       name: Greet
       shell: /bin/bash
       command: |
+        if [-z "$parameter.telegram-bot-token" -o -z "$parameter.telegram-chat-id"]; then
+          echo "Environment variable is empty"
+        fi
         curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&text=Hello from CircleCi!"
