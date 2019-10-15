@@ -23,6 +23,21 @@ parameters:
     type: string
     default: none
 
+  disable_web_page_preview:
+    description: Disables link previews for links in this message.
+    type: boolean
+    default: none
+
+  reply_to_message_id:
+    description: If the message is a reply, ID of the original message
+    type: integer
+    default: none
+
+  reply_markup:
+    description: Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+    type: InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply
+    default: none
+
 executor: default
 
 steps:
@@ -31,3 +46,6 @@ steps:
       telegram-bot-token: << parameters.telegram-bot-token >>
       telegram-chat-id: << parameters.telegram-chat-id >>
       parse_mode: << parameters.parse_mode >>
+      disable_web_page_preview: << parameters.disable_web_page_preview >>
+      reply_to_message_id: << parameters.reply_to_message_id >>
+      reply_markup: << parameters.reply_markup >>

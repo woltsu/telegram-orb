@@ -84,6 +84,9 @@ Notify a Telegram channel.
 | `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
 | `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
 | `parse_mode` | `boolean` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
+| `disable_web_page_preview` | `boolean` | none | Disables link previews for links in this message |
+| `reply_to_message_id` | `integer` | none | If the message is a reply, ID of the original message |
+| `reply_markup` | `InlineKeyboardMarkup` or `ReplyKeyboardMarkup` or `ReplyKeyboardRemove` or `ForceReply` | none | Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user |
 
 Example:
 
@@ -96,6 +99,8 @@ orbs:
 jobs:
   - telegram/notify:
       message: "Notification from CircleCI!"
+      reply_to_message_id: 3
+      disable_web_page_preview: true
 ```
 
 ## Help
