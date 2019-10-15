@@ -1,0 +1,20 @@
+description: "Send an image to a telegram channel."
+
+usage:
+  version: 2.1
+
+  orbs:
+    telegram: woltsu/telegram@x.y.z
+
+  jobs:
+    build:
+      docker:
+        - image: <docker image>
+      steps:
+        - telegram/sendphoto:
+            image-url: "https://www.example.com/img.jpg"
+
+  workflows:
+    your-workflow:
+      jobs:
+        - build
