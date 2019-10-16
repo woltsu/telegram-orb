@@ -34,6 +34,16 @@ jobs:
       - telegram/sendsticker:
           telegram-sticker: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
 
+  getmetest:
+    executor: orb-tools/ubuntu
+    steps:
+      - telegram/getme
+
+  getchattest:
+    executor: orb-tools/ubuntu
+    steps:
+      - telegram/getchat
+
 integration-dev_filters: &integration-dev_filters
   branches:
     ignore: /.*/
@@ -53,7 +63,9 @@ prod-deploy_requires: &prod-deploy_requires
     notify-job-master,
     sendgiftest-master,
     sendphototest-master,
-    sendstickertest-master
+    sendstickertest-master,
+    getmetest-master,
+    getchattest-master
   ]
 
 workflows:
@@ -128,6 +140,14 @@ workflows:
           name: sendstickertest-dev
           filters: *integration-dev_filters
 
+      - getmetest:
+          name: getmetest-dev
+          filters: *integration-dev_filters
+
+      - getchattest:
+          name: getchattest-dev
+          filters: *integration-dev_filters
+
       - telegram/notify:
           name: notify-job-dev
           filters: *integration-dev_filters
@@ -152,6 +172,14 @@ workflows:
 
       - sendstickertest:
           name: sendstickertest-master
+          filters: *integration-master_filters
+
+      - getmetest:
+          name: getmetest-master
+          filters: *integration-master_filters
+
+      - getchattest:
+          name: getchattest-master
           filters: *integration-master_filters
 
       - telegram/notify:
