@@ -24,8 +24,12 @@ parameters:
     type: string
     default: none
 
-steps:
+  disable_notification:
+    description: Sends the message silently. Users will receive a notification with no sound.
+    type: boolean
+    default: false
 
+steps:
   - run:
       name: Telegram Notification
       shell: /bin/bash

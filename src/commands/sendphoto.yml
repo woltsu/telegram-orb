@@ -1,0 +1,27 @@
+description: >
+  Sends an image to the specified Telegram chat.
+
+parameters:
+  image-url:
+    description: Enter the image's URL.
+    type: string
+    default:
+
+  telegram-bot-token:
+    type: env_var_name
+    default: TELEGRAM_BOT_TOKEN
+    description: >
+      Name of environment variable storing your Telegram bot token
+
+  telegram-chat-id:
+    type: env_var_name
+    default: TELEGRAM_CHAT_ID
+    description: >
+      Name of environment variable storing your Telegram chat id
+
+steps:
+  - run:
+      name: Send Image
+      shell: /bin/bash
+      command: |
+        if [ ! "$<<parameters.image-url>>" == "" ]; then curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendPhoto?chat_id=$<<parameters.telegram-chat-id>>&photo=<<parameters.image-url>>"; else echo Image URL invalid; fi
