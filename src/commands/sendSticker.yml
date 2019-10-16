@@ -12,7 +12,7 @@ parameters:
     default: TELEGRAM_CHAT_ID
     description: >
       Name of environment variable storing your Telegram chat id
-  telegram-sticker:
+  telegram-sticker-url:
     description: Enter a sticker file_id to send a file that exists on the Telegram servers or an HTTP URL as a String for Telegram to get a .webp file from the Internet
     type: string
     default: ""
@@ -22,10 +22,10 @@ steps:
       name: SendSticker
       shell: /bin/bash
       command: |
-        if [ -z <<parameters.telegram-sticker>> ]
+        if [ -z <<parameters.telegram-sticker-url>> ]
         then
             echo "Please add a valid file_id or url to .webp-file"
         else
 
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendSticker?chat_id=$<<parameters.telegram-chat-id>>&sticker=<<parameters.telegram-sticker>>"
+        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendSticker?chat_id=$<<parameters.telegram-chat-id>>&sticker=<<parameters.telegram-sticker-url>>"
         fi

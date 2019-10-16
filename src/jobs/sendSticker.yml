@@ -1,7 +1,7 @@
 description: Send a sticker to Telegram
 
 parameters:
-  telegram-sticker:
+  telegram-sticker-url:
     description: Enter a sticker file_id to send a file that exists on the Telegram servers or an HTTP URL as a String for Telegram to get a .webp file from the Internet
     type: string
     default: ""
@@ -22,6 +22,6 @@ executor: default
 
 steps:
   - sendSticker:
-      telegram-sticker: << parameters.telegram-sticker >>
+      telegram-sticker-url: << parameters.telegram-sticker-url >>
       telegram-bot-token: << parameters.telegram-bot-token >>
       telegram-chat-id: << parameters.telegram-chat-id >>

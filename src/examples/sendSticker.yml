@@ -12,7 +12,7 @@ usage:
         - image: <docker image>
       steps:
         - telegram/sendSticker:
-            telegram-sticker: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
+            telegram-sticker-url: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
 
   workflows:
     your-workflow:
