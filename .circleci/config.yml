@@ -31,7 +31,7 @@ jobs:
   sendstickertest:
     executor: orb-tools/ubuntu
     steps:
-      - telegram/sendphoto:
+      - telegram/sendsticker:
           telegram-sticker: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
 
 integration-dev_filters: &integration-dev_filters
