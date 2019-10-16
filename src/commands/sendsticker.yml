@@ -14,10 +14,11 @@ parameters:
     description: >
       Name of environment variable storing your Telegram chat id
 
-  telegram-sticker-url:
-    description: Enter a sticker file_id to send a file that exists on the Telegram servers or an HTTP URL as a String for Telegram to get a .webp file from the Internet
+  telegram-sticker:
     type: string
     default: ""
+    description: >
+      Enter a sticker file_id to send a file that exists on the Telegram servers or an HTTP URL as a String for Telegram to get a .webp file from the Internet
 
 steps:
   - run:

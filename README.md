@@ -100,8 +100,8 @@ jobs:
     docker:
       - image: <docker image>
     steps:
-      - telegram/sendSticker
-          telegram-sticker-url: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
+      - telegram/sendSticker:
+          telegram-sticker: "https://www.example.com/img.webp"
 ```
 
 ### SendGIF
@@ -183,29 +183,6 @@ orbs:
 jobs:
   - telegram/notify:
       message: "Notification from CircleCI!"
-```
-
-### SendSticker
-
-Send a sticker to Telegram
-
-| Parameter              | Type           | Default            | Description                                                  |
-| ---------------------- | -------------- | ------------------ | ------------------------------------------------------------ |
-| `telegram-bot-token`   | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
-| `telegram-chat-id`     | `env_var_name` | TELEGRAM_CHAT_ID   | Name of environment variable storing your Telegram chat id   |
-| `telegram-sticker-url` | `string`       | ""                 | file_id or url to .webp                                      |
-
-Example:
-
-```yaml
-version: 2.1
-
-orbs:
-  telegram: woltsu/telegram@x.y.z
-
-jobs:
-  - telegram/sendSticker:
-      telegram-sticker-url: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
 ```
 
 ## Help
