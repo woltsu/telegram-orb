@@ -31,7 +31,7 @@ steps:
       shell: /bin/bash
       command: |
         if [-z "$parameter.telegram-bot-token" -o -z "$parameter.telegram-chat-id" -o -z "$parameter.message"]; then
-          echo "Environment variable is empty"
+          echo "Environment variable telegram-bot-token or telegram-chat-id is empty"
         else
           curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&parse_mode=<< parameters.parse_mode >>&disable_notification=<< parameters.disable_notification >>&text=<< parameters.message >>"
         fi
