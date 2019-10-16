@@ -28,12 +28,13 @@ jobs:
 
 Notify a Telegram channel with a custom message at any point in a job with this custom step.
 
-| Parameter            | Type           | Default                | Description                                                                                                                      |
-| -------------------- | -------------- | ---------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `message`            | `string`       | Message from CircleCI. | Enter a custom message.                                                                                                          |
-| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN     | Name of environment variable storing your Telegram bot token                                                                     |
-| `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID       | Name of environment variable storing your Telegram chat id                                                                       |
-| `parse_mode`         | `boolean`      | none                   | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `message` | `string` |  Message from CircleCI. | Enter a custom message. |
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
+| `parse_mode` | `string` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
+| `disable_notification` | `boolean` | none | Sends the message silently. Users will receive a notification with no sound. |
 
 Example:
 
@@ -76,6 +77,7 @@ jobs:
       - telegram/getme
 ```
 
+
 ### SendSticker
 
 Send a sticker to Telegram
@@ -84,7 +86,7 @@ Send a sticker to Telegram
 | -------------------- | -------------- | ------------------ | ------------------------------------------------------------ |
 | `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
 | `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID   | Name of environment variable storing your Telegram chat id   |
-| `telegram-sticker`   | `string`       | ""                 | file_id or url to .webp                                      |
+| `telegram-sticker-url`   | `string`       | ""                 | file_id or url to .webp                                      |
 
 Example:
 
@@ -103,18 +105,73 @@ jobs:
         telegram-sticker: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
 ```
 
+### SendGIF
+A command which sends an animated image to the specified Telegram chat.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token
+| `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id
+| `gif-url` | `string` | | Enter the image's URL
+
+Example:
+
+```yaml
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@x.y.z
+
+jobs:
+  build:
+    docker:
+      - image: <docker image>
+    steps:
+      - telegram/sendgif:
+          - gif-url: "https://www.example.com/img.gif"
+```
+
+### SendPhoto
+A command which sends an image to the specified Telegram chat.
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token
+| `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id
+| `image-url` | `string` | | Enter the image's URL
+
+Example:
+
+```yaml
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@x.y.z
+
+jobs:
+  build:
+    docker:
+      - image: <docker image>
+    steps:
+      - telegram/sendphoto:
+          - image-url: "https://www.example.com/img.jpg"
+```
+
 ## Jobs
 
 ### Notify
 
 Notify a Telegram channel.
 
-| Parameter            | Type           | Default                    | Description                                                                                                                      |
-| -------------------- | -------------- | -------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
-| `message`            | `string`       | Job Message from CircleCI! | Enter a custom message.                                                                                                          |
-| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN         | Name of environment variable storing your Telegram bot token                                                                     |
-| `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID           | Name of environment variable storing your Telegram chat id                                                                       |
-| `parse_mode`         | `boolean`      | none                       | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
+
+| Parameter | Type | Default | Description |
+|-----------|------|---------|-------------|
+| `message` | `string` |  Job Message from CircleCI! | Enter a custom message. |
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
+| `parse_mode` | `string` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
+| `disable_notification` | `boolean` | none | Sends the message silently. Users will receive a notification with no sound. |
+
 
 Example:
 
@@ -137,7 +194,7 @@ Send a sticker to Telegram
 | -------------------- | -------------- | ------------------ | ------------------------------------------------------------ |
 | `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
 | `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID   | Name of environment variable storing your Telegram chat id   |
-| `telegram-sticker`   | `string`       | ""                 | file_id or url to .webp                                      |
+| `telegram-sticker-ur`   | `string`       | ""                 | file_id or url to .webp                                      |
 
 Example:
 
