@@ -1,0 +1,20 @@
+description: "Send a sticker to a telegram channel."
+
+usage:
+  version: 2.1
+
+  orbs:
+    telegram: woltsu/telegram@x.y.z
+
+  jobs:
+    build:
+      docker:
+        - image: <docker image>
+      steps:
+        - telegram/sendsticker:
+            telegram-sticker: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
+
+  workflows:
+    your-workflow:
+      jobs:
+        - build

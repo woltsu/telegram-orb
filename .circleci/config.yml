@@ -1,8 +1,5 @@
 version: 2.1
 
-# add your orb below, to be used in integration tests (note: a @dev:alpha
-# release must exist; you'll need to publish manually at least once)
-# you can use scripts/publish-alpha.sh to publish a @dev:alpha release
 orbs:
   telegram: woltsu/telegram@dev:alpha
   orb-tools: circleci/orb-tools@8.27.3
@@ -31,7 +28,12 @@ jobs:
       - telegram/sendphoto:
           image-url: "https://i.imgur.com/RBmn7VY.jpg"
 
-# yaml anchor filters
+  sendstickertest:
+    executor: orb-tools/ubuntu
+    steps:
+      - telegram/sendsticker:
+          telegram-sticker: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
+
 integration-dev_filters: &integration-dev_filters
   branches:
     ignore: /.*/
@@ -50,7 +52,8 @@ prod-deploy_requires: &prod-deploy_requires
     greettest-master,
     notify-job-master,
     sendgiftest-master,
-    sendphototest-master
+    sendphototest-master,
+    sendstickertest-master
   ]
 
 workflows:
@@ -121,6 +124,10 @@ workflows:
           name: sendphototest-dev
           filters: *integration-dev_filters
 
+      - sendstickertest:
+          name: sendstickertest-dev
+          filters: *integration-dev_filters
+
       - telegram/notify:
           name: notify-job-dev
           filters: *integration-dev_filters
@@ -141,6 +148,10 @@ workflows:
 
       - sendphototest:
           name: sendphototest-master
+          filters: *integration-master_filters
+
+      - sendstickertest:
+          name: sendstickertest-master
           filters: *integration-master_filters
 
       - telegram/notify:
