@@ -7,11 +7,13 @@ parameters:
     default: TELEGRAM_BOT_TOKEN
     description: >
       Name of environment variable storing your Telegram bot token
+
   telegram-chat-id:
     type: env_var_name
     default: TELEGRAM_CHAT_ID
     description: >
       Name of environment variable storing your Telegram chat id
+
   telegram-sticker-url:
     description: Enter a sticker file_id to send a file that exists on the Telegram servers or an HTTP URL as a String for Telegram to get a .webp file from the Internet
     type: string
