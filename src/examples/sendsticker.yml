@@ -11,7 +11,7 @@ usage:
       docker:
         - image: <docker image>
       steps:
-        - telegram/sendSticker:
+        - telegram/sendsticker:
             telegram-sticker: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
 
   workflows:
