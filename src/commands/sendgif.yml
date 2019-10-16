@@ -1,0 +1,27 @@
+description: >
+  Sends an animated image to the specified Telegram chat.
+
+parameters:
+  gif-url:
+    description: Enter the animated image's URL.
+    type: string
+    default: ""
+
+  telegram-bot-token:
+    type: env_var_name
+    default: TELEGRAM_BOT_TOKEN
+    description: >
+      Name of environment variable storing your Telegram bot token
+
+  telegram-chat-id:
+    type: env_var_name
+    default: TELEGRAM_CHAT_ID
+    description: >
+      Name of environment variable storing your Telegram chat id
+
+steps:
+  - run:
+      name: Send Animated Image
+      shell: /bin/bash
+      command: |
+        if [ ! "$<<parameters.gif-url>>" == "" ]; then curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendAnimation?chat_id=$<<parameters.telegram-chat-id>>&animation=<<parameters.gif-url>>"; else echo GIF URL invalid; fi
