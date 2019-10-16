@@ -18,4 +18,7 @@ steps:
       name: Greet
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&text=Hello from CircleCi!"
+        STATUS=$(curl -I "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&text=Hello from CircleCi!" 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+        if [ $STATUS -ge "400" ]; then
+          echo "Greetings failed with HTTP response code $STATUS"
+        fi
