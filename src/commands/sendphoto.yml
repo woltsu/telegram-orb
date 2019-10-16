@@ -21,7 +21,7 @@ parameters:
 
 steps:
   - run:
-      name: Send Image
+      name: Send image
       shell: /bin/bash
       command: |
         if [ ! "$<<parameters.image-url>>" == "" ]; then curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendPhoto?chat_id=$<<parameters.telegram-chat-id>>&photo=<<parameters.image-url>>"; else echo Image URL invalid; fi

@@ -101,7 +101,7 @@ jobs:
       - image: <docker image>
     steps:
       - telegram/sendSticker
-        telegram-sticker-url: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
+          telegram-sticker-url: "https://raw.githubusercontent.com/TelegramBots/book/master/src/docs/sticker-fred.webp"
 ```
 
 ### SendGIF
@@ -128,7 +128,7 @@ jobs:
       - image: <docker image>
     steps:
       - telegram/sendgif:
-          - gif-url: "https://www.example.com/img.gif"
+          gif-url: "https://www.example.com/img.gif"
 ```
 
 ### SendPhoto
@@ -155,7 +155,7 @@ jobs:
       - image: <docker image>
     steps:
       - telegram/sendphoto:
-          - image-url: "https://www.example.com/img.jpg"
+          image-url: "https://www.example.com/img.jpg"
 ```
 
 ## Jobs

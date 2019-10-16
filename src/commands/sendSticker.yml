@@ -19,7 +19,7 @@ parameters:
 
 steps:
   - run:
-      name: SendSticker
+      name: Send sticker
       shell: /bin/bash
       command: |
         if [ -z <<parameters.telegram-sticker-url>> ]
