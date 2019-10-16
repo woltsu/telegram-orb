@@ -1,0 +1,19 @@
+description: "Get information about telegram channel."
+
+usage:
+  version: 2.1
+
+  orbs:
+    telegram: woltsu/telegram@x.y.z
+
+  jobs:
+    build:
+      docker:
+        - image: <docker image>
+      steps:
+        - telegram/getchat
+
+  workflows:
+    your-workflow:
+      jobs:
+        - build

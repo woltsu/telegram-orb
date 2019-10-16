@@ -1,0 +1,33 @@
+description: >
+  A method to get up to date information about the chat (current name of the user for one-on-one conversations,
+  current username of a user, group or channel, etc.) Returns a Chat object on success.
+
+parameters:
+  telegram-bot-token:
+    type: env_var_name
+    default: TELEGRAM_BOT_TOKEN
+    description: >
+      Name of environment variable storing your Telegram bot token
+
+  telegram-chat-id:
+    type: env_var_name
+    default: TELEGRAM_CHAT_ID
+    description: >
+      Name of environment variable storing your Telegram chat id
+
+steps:
+  - run:
+      name: Fetch chat information
+      shell: /bin/bash
+      command: |
+        if [-z "$<< parameter.telegram-bot-token >>" ]; then
+          echo "Please input your TELEGRAM_BOT_TOKEN value in the CircleCI settings for this project or as a parameter for this command"
+          exit 1
+        fi
+
+        if [-z "$<< parameter.telegram-chat-id >>" ]; then
+          echo "Please input your TELEGRAM_CHAT_ID value in the CircleCI settings for this project or as a parameter for this command"
+          exit 1
+        fi
+
+        curl "https://api.telegram.org/bot$<< parameters.telegram-bot-token >>/getChat?chat_id=$<< parameters.telegram-chat-id >>"
