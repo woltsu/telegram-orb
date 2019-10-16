@@ -16,5 +16,6 @@ steps:
       command: |
         if [-z "$parameter.telegram-bot-token"]; then
           echo "Environment variable is empty"
+        else
+          curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/getMe"
         fi
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/getMe"
