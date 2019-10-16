@@ -85,7 +85,7 @@ Send a sticker to Telegram
 | ---------------------- | -------------- | ------------------ | ------------------------------------------------------------ |
 | `telegram-bot-token`   | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
 | `telegram-chat-id`     | `env_var_name` | TELEGRAM_CHAT_ID   | Name of environment variable storing your Telegram chat id   |
-| `telegram-sticker-url` | `string`       | ""                 | file_id or url to .webp                                      |
+| `telegram-sticker` | `string`       | ""                 | file_id or url to .webp                                      |
 
 Example:
 

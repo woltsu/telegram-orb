@@ -25,10 +25,10 @@ steps:
       name: Send sticker
       shell: /bin/bash
       command: |
-        if [ -z <<parameters.telegram-sticker-url>> ]
+        if [ -z <<parameters.telegram-sticker>> ]
         then
             echo "Please add a valid file_id or url to .webp-file"
         else
 
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendSticker?chat_id=$<<parameters.telegram-chat-id>>&sticker=<<parameters.telegram-sticker-url>>"
+        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendSticker?chat_id=$<<parameters.telegram-chat-id>>&sticker=<<parameters.telegram-sticker>>"
         fi
