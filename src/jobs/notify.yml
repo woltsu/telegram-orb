@@ -28,6 +28,11 @@ parameters:
     type: boolean
     default: false
 
+  reply_to_message_id:
+    description: If the message is a reply, ID of the original message.
+    type: integer
+    default: TELEGRAM_CHAT_ID
+
 executor: default
 
 steps:
@@ -37,3 +42,4 @@ steps:
       telegram-chat-id: << parameters.telegram-chat-id >>
       parse_mode: << parameters.parse_mode >>
       disable_notification: << parameters.disable_notification >>
+      reply_to_message_id: << parameters.reply_to_message_id >>

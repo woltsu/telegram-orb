@@ -138,7 +138,7 @@ Notify a Telegram channel.
 | `telegram-chat-id` | `env_var_name` | TELEGRAM_CHAT_ID | Name of environment variable storing your Telegram chat id |
 | `parse_mode` | `string` | none | Use `Markdown` or `HTML`, if you want Telegram apps to show bold, italic, fixed-width text or inline URLs in your bot's message. |
 | `disable_notification` | `boolean` | none | Sends the message silently. Users will receive a notification with no sound. |
-
+| `reply_to_message_id` | `integer` | reply to message from CircleCI |  If the message is a reply, ID of the original message
 Example:
 
 ```yaml
@@ -163,4 +163,3 @@ https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-cha
 
 ### How to setup CircleCI environment
 In the settings page for your project on CircleCI, click `Environment Variables`. There you need to add 2 variables: `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`.
-
