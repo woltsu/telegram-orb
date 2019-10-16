@@ -31,7 +31,7 @@ parameters:
 
 steps:
   - run:
-      name: Telegram Notification
+      name: Telegram notification
       shell: /bin/bash
       command: |
         curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&parse_mode=<< parameters.parse_mode >>&disable_notification=<< parameters.disable_notification >>&text=<< parameters.message >>"
