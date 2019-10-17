@@ -24,14 +24,19 @@ parameters:
     type: string
     default: none
 
-  disable_notification:
-    description: Sends the message silently. Users will receive a notification with no sound.
+  disable_web_page_preview:
+    description: Disables link previews for links in this message.
     type: boolean
-    default: false
+    default: none
+
+  reply_markup:
+    description: Additional interface options. A JSON-serialized object for an inline keyboard, custom reply keyboard, instructions to remove reply keyboard or to force a reply from the user.
+    type: InlineKeyboardMarkup or ReplyKeyboardMarkup or ReplyKeyboardRemove or ForceReply
+    default: none
 
 steps:
   - run:
       name: Telegram notification
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&parse_mode=<< parameters.parse_mode >>&disable_notification=<< parameters.disable_notification >>&text=<< parameters.message >>"
+        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&parse_mode=<< parameters.parse_mode >>&reply_markup=<< parameters.reply_markup >>&disable_web_page_preview=<< parameters.disable_web_page_preview >>&disable_notification=<< parameters.disable_notification >>&text=<< parameters.message >>"
