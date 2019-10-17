@@ -13,4 +13,7 @@ steps:
       name: Fetch bot information
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/getMe"
+        STATUS=$(curl -I "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/getMe" 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+        if [ $STATUS -ge "400" ]; then
+          echo "Fetch failed with HTTP response code $STATUS"
+        fi

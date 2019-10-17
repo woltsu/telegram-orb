@@ -24,4 +24,11 @@ steps:
       name: Send image
       shell: /bin/bash
       command: |
-        if [ ! "$<<parameters.image-url>>" == "" ]; then curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendPhoto?chat_id=$<<parameters.telegram-chat-id>>&photo=<<parameters.image-url>>"; else echo Image URL invalid; fi
+        if [ ! "$<<parameters.image-url>>" == "" ]; then
+          STATUS=$(curl -I "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendPhoto?chat_id=$<<parameters.telegram-chat-id>>&photo=<<parameters.image-url>>" 2>/dev/null | head -n 1 | cut -d$' ' -f2)
+          if [ $STATUS -ge "400" ]; then
+            echo "Sending image failed with HTTP response code $STATUS"
+          fi
+        else
+          echo Image URL invalid;
+        fi
