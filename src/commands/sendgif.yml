@@ -21,7 +21,7 @@ parameters:
 
 steps:
   - run:
-      name: Send Animated Image
+      name: Send an annimated image
       shell: /bin/bash
       command: |
         if [ ! "$<<parameters.gif-url>>" == "" ]; then curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendAnimation?chat_id=$<<parameters.telegram-chat-id>>&animation=<<parameters.gif-url>>"; else echo GIF URL invalid; fi

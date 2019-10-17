@@ -9,7 +9,6 @@ parameters:
       Name of environment variable storing your Telegram bot token
 
 steps:
-
   - run:
       name: Fetch bot information
       shell: /bin/bash
