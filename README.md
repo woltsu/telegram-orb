@@ -217,6 +217,8 @@ https://core.telegram.org/bots
 
 https://stackoverflow.com/questions/32423837/telegram-bot-how-to-get-a-group-chat-id
 
+Remember to add your bot into the channel!
+
 ### How to setup CircleCI environment
 
 In the settings page for your project on CircleCI, click `Environment Variables`. There you need to add 2 variables: `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID`.
