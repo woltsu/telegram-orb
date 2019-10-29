@@ -13,4 +13,8 @@ steps:
       name: Fetch bot information
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/getMe"
+        if [ -z "$<< parameters.telegram-bot-token >>" ]; then
+          echo "Please input your TELEGRAM_BOT_TOKEN value in the CircleCI settings for this project or provide another environmental variable name as a parameter for 'getme' command"
+        else
+          curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/getMe"
+        fi

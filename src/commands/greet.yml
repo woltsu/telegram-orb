@@ -18,4 +18,10 @@ steps:
       name: Greet
       shell: /bin/bash
       command: |
-        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&text=Hello from CircleCi!"
+        if [ -z "$<< parameters.telegram-bot-token >>" ]; then
+          echo "Please input your TELEGRAM_BOT_TOKEN value in the CircleCI settings for this project or provide another environmental variable name as a parameter for 'greet' command"
+        elif [ -z "$<< parameters.telegram-chat-id >>" ]; then
+          echo "Please input your TELEGRAM_CHAT_ID value in the CircleCI settings for this project or provide another environmental variable name as a parameter for 'greet' command"
+        else
+          curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendMessage?chat_id=$<<parameters.telegram-chat-id>>&text=Hello from CircleCi!"
+        fi
