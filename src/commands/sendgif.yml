@@ -28,7 +28,7 @@ steps:
           echo "Please input your TELEGRAM_BOT_TOKEN value in the CircleCI settings for this project or provide another environmental variable name as a parameter for 'sendgif' command"
         elif [ -z "$<< parameters.telegram-chat-id >>" ]; then
           echo "Please input your TELEGRAM_CHAT_ID value in the CircleCI settings for this project or provide another environmental variable name as a parameter for 'sendgif' command"
-        elif [ -z "$<<parameters.gif-url>>" ]; then
+        elif [ -z "<<parameters.gif-url>>" ]; then
           echo "Please input gif-url parameter for 'sendgif' command"
         else
           curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendAnimation?chat_id=$<<parameters.telegram-chat-id>>&animation=<<parameters.gif-url>>"
