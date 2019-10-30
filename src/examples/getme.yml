@@ -1,4 +1,4 @@
-description: "Greet a telegram channel."
+description: "Get information about bot"
 
 usage:
   version: 2.1
@@ -11,7 +11,7 @@ usage:
       docker:
         - image: <docker image>
       steps:
-        - telegram/greet
+        - telegram/getme
 
   workflows:
     your-workflow:

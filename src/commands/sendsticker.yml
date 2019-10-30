@@ -29,7 +29,7 @@ steps:
           echo "Please input your TELEGRAM_BOT_TOKEN value in the CircleCI settings for this project or provide another environmental variable name as a parameter for 'sendsticker' command"
         elif [ -z "$<< parameters.telegram-chat-id >>" ]; then
           echo "Please input your TELEGRAM_CHAT_ID value in the CircleCI settings for this project or provide another environmental variable name as a parameter for 'sendsticker' command"
-        elif [ -z "$<<parameters.telegram-sticker>>" ]; then
+        elif [ -z "<<parameters.telegram-sticker>>" ]; then
           echo "Please input telegram-sticker parameter for 'sendsticker' command"
         else
           curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendSticker?chat_id=$<<parameters.telegram-chat-id>>&sticker=<<parameters.telegram-sticker>>"
