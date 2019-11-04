@@ -1,0 +1,20 @@
+description: "Send a action status."
+
+usage:
+  version: 2.1
+
+  orbs:
+    telegram: woltsu/telegram@x.y.z
+
+  jobs:
+    build:
+      docker:
+        - image: <docker image>
+      steps:
+        - telegram/showstatus:
+            telegram-action: "upload_document"
+
+  workflows:
+    your-workflow:
+      jobs:
+        - build

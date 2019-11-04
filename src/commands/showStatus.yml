@@ -1,0 +1,34 @@
+description: >
+  Show the action status
+
+parameters:
+  telegram-bot-token:
+    type: env_var_name
+    default: TELEGRAM_BOT_TOKEN
+    description: >
+      Name of environment variable storing your Telegram bot token
+
+  telegram-chat-id:
+    type: env_var_name
+    default: TELEGRAM_CHAT_ID
+    description: >
+      Name of environment variable storing your Telegram chat id
+
+  telegram-action:
+    type: string
+    default: ""
+    description: >
+      Enter an action type
+
+steps:
+  - run:
+      name: Show action status
+      shell: /bin/bash
+      command: |
+        if [ -z <<parameters.telegram-action>> ]
+        then
+            echo "Please specify an action type."
+        else
+
+        curl "https://api.telegram.org/bot$<<parameters.telegram-bot-token>>/sendChatAction?chat_id=$<<parameters.telegram-chat-id>>&action=<<parameters.telegram-action>>"
+        fi

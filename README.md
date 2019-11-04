@@ -180,6 +180,33 @@ jobs:
           image-url: "https://www.example.com/img.jpg"
 ```
 
+### ShowStatus
+
+A command which sets the action status to the specified Telegram chat.
+
+| Parameter            | Type           | Default            | Description                                                  |
+| -------------------- | -------------- | ------------------ | ------------------------------------------------------------ |
+| `telegram-bot-token` | `env_var_name` | TELEGRAM_BOT_TOKEN | Name of environment variable storing your Telegram bot token |
+| `telegram-chat-id`   | `env_var_name` | TELEGRAM_CHAT_ID   | Name of environment variable storing your Telegram chat id   |
+| `telegram-action`    | `string`       |                    | Enter an action type                                         |
+
+Example:
+
+```yaml
+version: 2.1
+
+orbs:
+  telegram: woltsu/telegram@x.y.z
+
+jobs:
+  build:
+    docker:
+      - image: <docker image>
+    steps:
+      - telegram/showstatus:
+          telegram-action: "upload_document"
+```
+
 ## Jobs
 
 ### Notify
